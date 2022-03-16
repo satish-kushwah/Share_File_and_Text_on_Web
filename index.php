@@ -1,7 +1,7 @@
 <?php
 session_start();
 $showAlert = false;
-if (isset($_SESSION['loggedinUpload'])) {
+if (isset($_SESSION['loggedin'])) {
     header('Location: home.php');
 }
 
@@ -9,7 +9,7 @@ include 'password.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['password'] == $password) {
-        $_SESSION['loggedinUpload'] = true;
+        $_SESSION['loggedin'] = true;
         header('Location: home.php');
     } else {
         $showAlert = true;

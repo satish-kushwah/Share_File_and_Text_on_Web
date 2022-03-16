@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['loggedinUpload'])) {
+if (!isset($_SESSION['loggedin'])) {
     header('Location: index.php');
 }
 $showAlert = false;
@@ -34,8 +34,9 @@ $showAlert = false;
                 $qr_url = $_GET['qr_url'];
                 $qr_url1 = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" . urlencode($qr_url);
             }
-            echo "Scan QR Code for <a href='$qr_url'>$qr_url</a><br>";
+            echo "<b>Scan QR Code for</b> <a href='$qr_url'>$qr_url</a><br>";
             ?>
+
             <br>
             <img src="<?php echo $qr_url1 ?>" alt="qr_code">
         </div>
