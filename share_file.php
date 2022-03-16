@@ -111,7 +111,7 @@ if (isset($_POST['delete'])) {
                           <div class='my-3 d-flex'>  
                                <div >
                                 <a href=\"uploads/$filedownload\" download class='btn btn-primary'>Download</a>
-                                <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=http://$current_site/uploads/$filedownload\" target='_blank' class='btn btn-info'>QR Code</a>
+                                <a href=\"scan_qr_code.php?qr_url=http://$current_site/uploads/$filedownload\" target='_blank' class='btn btn-info'>QR Code</a>
                                 </div>
                                 <div class='float-start'>
                                     <form method='post' class='mx-3' action='share_file.php'>

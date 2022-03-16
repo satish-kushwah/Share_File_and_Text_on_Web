@@ -110,7 +110,7 @@ if (isset($_GET['delete'])) {
                             <td>$tag</td>
                             <td>$dateAdded</td>
                             <td>
-                                <a href=\"https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=$url\" target='_blank' class='btn btn-info'>QR Code</a>
+                                <a href=\"scan_qr_code.php?qr_url=$url\" target='_blank' class='btn btn-info'>QR Code</a>
                                 <a href='share_link.php?delete=$dateAdded' class='btn btn-danger' onclick=\"return confirm('Sure to delete \'$tag\'?')\">Delete</a>
                             </td>
                         </tr>";
