@@ -42,6 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         ?>
         <div class="mt-5 ">
+            <?php
+            $current_site = $_SERVER['SERVER_NAME'];
+            echo "<a class='' aria-current='page' href='http://$current_site'>$current_site</a>";
+            ?>
             <form action="index.php" method="post">
                 <input type="password" name="password" class="form-control mb-3 mt-5" style="width: 200px;" placeholder="enter password">
                 <button type="submit" class="btn btn-primary " style="width: 200px;">Login </button>
