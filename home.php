@@ -13,7 +13,7 @@ if (!isset($_SESSION['loggedin'])) {
     <!-- Bootstrap CSS -->
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0' crossorigin='anonymous'>
     <link rel="shortcut icon" type="image/x-icon" href="sharelogo.png">
-    <title>Share File and Link</title>
+    <title>Share File and Text</title>
 </head>
 
 <body>
@@ -33,9 +33,9 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="col-md-4">
                 <div class="card mb-4 ">
                     <div class="card-body">
-                        <h5 class="card-title text-center text-success">Share Link</h5>
-                        <p class="card-text text-left">Share Link/URL over web</p>
-                        <a href="share_link.php" class="btn btn-primary w-100">Share Link</a>
+                        <h5 class="card-title text-center text-success">Share Text</h5>
+                        <p class="card-text text-left">Share Text over web</p>
+                        <a href="share_text.php" class="btn btn-primary w-100">Share Text</a>
                     </div>
                 </div>
             </div>

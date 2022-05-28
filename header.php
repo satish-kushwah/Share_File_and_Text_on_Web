@@ -17,7 +17,7 @@ if (!isset($_SESSION['loggedin'])) {
                     <a class="active nav-link " aria-current="page" href="share_file.php">Share File</a>
                 </li>
                 <li class="nav-item">
-                    <a class="active nav-link " aria-current="page" href="share_link.php">Share Link</a>
+                    <a class="active nav-link " aria-current="page" href="share_text.php">Share Text</a>
                 </li>
                 <li class="nav-item">
                     <a class="active nav-link " aria-current="page" href="help.php">Help</a>

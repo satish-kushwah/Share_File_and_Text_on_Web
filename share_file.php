@@ -110,12 +110,12 @@ if (isset($_POST['delete'])) {
                           <div class='my-3'> <b>File Size:</b> $size kb <b>Uploaded On:</b> $dateTime </div>
                           <div class='my-3 d-flex'>  
                                <div >
-                                <a href=\"uploads/$filedownload\" download class='btn btn-primary'>Download</a>
-                                <a href=\"scan_qr_code.php?qr_url=http://$current_site/uploads/$filedownload\" class='btn btn-info'>QR Code</a>
+                                <a href=\"uploads/$filedownload\" download class='btn-sm btn btn-primary'>Download</a>
+                                <a href=\"scan_qr_code.php?qr_url=http://$current_site/uploads/$filedownload\" class='btn-sm btn btn-info'>QR Code</a>
                                 </div>
                                 <div class='float-start'>
                                     <form method='post' class='mx-3' action='share_file.php'>
-                                        <button onclick=\"return confirm('Sure to delete $file ?')\" type='submit' class='btn btn-danger' name='delete' value=\"$file\">Delete</button>
+                                        <button onclick=\"return confirm('Sure to delete $file ?')\" type='submit' class='btn-sm btn btn-danger' name='delete' value=\"$file\">Delete</button>
                                     </form> 
                                 </div>
                           </div><hr>";
