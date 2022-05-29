@@ -50,6 +50,7 @@ if (isset($_GET['delete'])) {
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!-- Bootstrap CSS -->
     <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0' crossorigin='anonymous'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="sharelogo.png">
     <title>Share Text</title>
 </head>
@@ -81,7 +82,7 @@ if (isset($_GET['delete'])) {
                         <form method='POST'>
                             <div class='mb-3'>
                                 <label for='url' class='form-label float-start'>Text</label>
-                                <textarea class='form-control' id='url' name="url" cols="30" rows="5"></textarea>
+                                <textarea class='form-control' name="url" cols="20" rows="5"></textarea>
                             </div>
                             <div class='mb-3'>
                                 <label for='tag' class='form-label float-start'>Remark</label>
@@ -122,13 +123,26 @@ if (isset($_GET['delete'])) {
             $tag = $row[1];
             $dateAdded = $row[2];
             echo "<b>$x. $dateAdded:</b> $tag
-                  <p>$url_desc </p>
+                  <p id='p$x'>$url_desc </p>
                   <a href=\"scan_qr_code.php?qr_url=$url\" class='btn btn-info btn-sm'>QR Code</a>
                   <a href='share_text.php?delete=$dateAdded' class='btn btn-danger btn-sm' onclick=\"return confirm('Sure to delete \'$tag\'?')\">Delete</a>
+                  <button type='button' class='btn btn-sm btn-success' id='btn$x' onclick=\"copyToClipboard('#p$x')\" >Copy</button>
                   <hr>";
         }
         ?>
     </div>
+    <script>
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+        var btnid = element.slice(2);
+        btnid= "#btn"+btnid; 
+        $(btnid).text("Copied");
+    }
+    </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8' crossorigin='anonymous'></script>
 </body>
