@@ -1,6 +1,12 @@
 <?php
 session_start();
 $showAlert = false;
+
+$cookie_name = "loggedin";
+if(isset($_COOKIE[$cookie_name])) {
+    $_SESSION['loggedin']=true;
+}
+
 if (isset($_SESSION['loggedin'])) {
     header('Location: home.php');
 }
@@ -10,6 +16,9 @@ include 'password.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['password'] == $password) {
         $_SESSION['loggedin'] = true;
+        $cookie_name = "loggedin";
+        $cookie_value = "yes";
+        setcookie($cookie_name, $cookie_value, time() + (86400 * 7), "/"); // 86400 = 1 day
         header('Location: home.php');
     } else {
         $showAlert = true;

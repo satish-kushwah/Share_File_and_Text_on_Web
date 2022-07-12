@@ -124,24 +124,24 @@ if (isset($_GET['delete'])) {
             $dateAdded = $row[2];
             echo "<b>$x. $dateAdded:</b> $tag
                   <p id='p$x' style='white-space: pre-wrap;'>$url_desc </p>
-                  <a href=\"scan_qr_code.php?qr_url=$url\" class='btn btn-info btn-sm'>QR Code</a>
-                  <a href='share_text.php?delete=$dateAdded' class='btn btn-danger btn-sm' onclick=\"return confirm('Sure to delete \'$tag\'?')\">Delete</a>
                   <button type='button' class='btn btn-sm btn-success' id='btn$x' onclick=\"copyToClipboard('#p$x')\" >Copy</button>
+                  <a href=\"scan_qr_code.php?qr_url=$url\" class='btn btn-info btn-sm mx-1'>QR Code</a>
+                  <a href='share_text.php?delete=$dateAdded' class='btn btn-danger btn-sm' onclick=\"return confirm('Sure to delete \'$tag\'?')\">Delete</a>
                   <hr>";
         }
         ?>
     </div>
     <script>
-    function copyToClipboard(element) {
-        var $temp = $("<input>");
-        $("body").append($temp);
-        $temp.val($(element).text()).select();
-        document.execCommand("copy");
-        $temp.remove();
-        var btnid = element.slice(2);
-        btnid= "#btn"+btnid; 
-        $(btnid).text("Copied");
-    }
+        function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+            var btnid = element.slice(2);
+            btnid = "#btn" + btnid;
+            $(btnid).text("Copied");
+        }
     </script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8' crossorigin='anonymous'></script>

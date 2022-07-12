@@ -106,15 +106,16 @@ if (isset($_POST['delete'])) {
                     $size = round(filesize("uploads/" . $file) / (1024));
                     $current_site = $_SERVER['SERVER_NAME'];
                     // echo $current_site;
-                    echo "<div class='my-3'> <b>$sn.</b> $file </div>    
-                          <div class='my-3'> <b>File Size:</b> $size kb <b>Uploaded On:</b> $dateTime </div>
-                          <div class='my-3 d-flex'>  
+                    echo "<div> <b>$sn.</b> $file </div>    
+                          <div> <b>File Size:</b> $size kb <b>Uploaded On:</b> $dateTime </div>
+                          <div class='mt-2 d-flex'>  
                                <div >
-                                <a href=\"uploads/$filedownload\" download class='btn-sm btn btn-primary'>Download</a>
+                                <a href=\"uploads/$filedownload\" class='btn-sm btn btn-success'>View</a>
+                                <a href=\"uploads/$filedownload\" download class='btn-sm btn btn-primary mx-1'>Download</a>
                                 <a href=\"scan_qr_code.php?qr_url=http://$current_site/uploads/$filedownload\" class='btn-sm btn btn-info'>QR Code</a>
                                 </div>
                                 <div class='float-start'>
-                                    <form method='post' class='mx-3' action='share_file.php'>
+                                    <form method='post' class='mx-2' action='share_file.php'>
                                         <button onclick=\"return confirm('Sure to delete $file ?')\" type='submit' class='btn-sm btn btn-danger' name='delete' value=\"$file\">Delete</button>
                                     </form> 
                                 </div>
